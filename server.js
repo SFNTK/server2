@@ -7,7 +7,13 @@ app.use(bodyParser.json());
 const cors = require('cors');
 
 
-app.use(cors())
+app.use(cors(
+  {
+    origin:["https://deploy-mern-1whq.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+  }
+))
 app.listen(3001)
 const path=require("path")
 app.use("/assets",express.static(path.join(__dirname,"assets")))
